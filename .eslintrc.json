@@ -1,0 +1,43 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+        "plugin:react/recommended"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "indent": [
+            "warn",
+            2
+          ],
+          "sort-imports": [
+            "error",
+            {
+              "ignoreCase": true,
+              "ignoreDeclarationSort": false,
+              "ignoreMemberSort": false,
+              "memberSyntaxSortOrder": [
+                "none",
+                "single",
+                "all",
+                "multiple"
+              ]
+            }
+          ]
+    }
+}
