@@ -1,5 +1,6 @@
 import './index.scss';
 import mockData from '../../mockData';
+import PhoneCardComponent from '../phone-card-component';
 import React from 'react';
 import Spinner from '../spinner';
 
@@ -25,7 +26,9 @@ export const PhoneListContainer = () => {
         phones ?
           <nav className="detailContainer">
             <section className="dataList">
-              <p>list mobile</p>
+              {
+                phones.map((phone, i) => <PhoneCardComponent phoneData={phone} key={i}/>)
+              }
             </section>
             <section className="pagerList">
               <p>paginación</p>
