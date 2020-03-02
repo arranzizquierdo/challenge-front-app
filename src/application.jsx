@@ -1,9 +1,11 @@
-import React, {Component} from 'react';
+import PhoneListContainer from './components/phone-list-container';
+import React, { Component } from 'react';
 
 class Application extends Component {
   render() {
-    return <div>challenge-app</div>
+    return <PhoneListContainer></PhoneListContainer>
   }
 };
 
 export default Application;
+

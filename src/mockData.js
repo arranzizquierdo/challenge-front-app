@@ -1,4 +1,4 @@
-export default data = [
+const mockData = [
   {
     name: 'Samsung Galaxy Z Flip',
     image: 'samsung',
@@ -118,3 +118,5 @@ export default data = [
     description: 'Este nuevo modelo viene con una pantalla de grandes dimensiones de 6.57 pulgadas y resolución FullHD+. En cuanto al almacenamiento interno viene con versiones de 128 GB o 256 GB acompañados de 8 GB de RAM y un procesador Kirin 990.',
   },
 ];
+
+export default mockData;
