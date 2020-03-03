@@ -11,7 +11,7 @@ export const PhoneCardComponent = ({phoneData}) => {
   return <div className="phoneCard">
     <h2 className="detailTitle">{phoneData.name}</h2>
     <div className="dataDetail">
-      <img src='' alt={phoneData.name}/>
+      <img src={require(`../../assets/images/${phoneData.image}.JPG`)} alt={phoneData.name}/>
       <button className="buttonDetail" onClick={() => {
         setSelectedPhone(phoneData)
         setShowModalDetail(true);
