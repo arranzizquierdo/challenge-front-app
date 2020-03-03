@@ -35,7 +35,7 @@ export const PhoneListContainer = ({searchPhoneList, state}) => {
         <p>Navega por nuestro listado hasta descubrir cuál es el mejor móvil calidad precio de este año 2020.</p>
       </article>
       {
-        phones ?
+        phones && !state.searching ?
           <nav className="detailContainer">
             <section className="dataList">
               {
