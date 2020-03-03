@@ -5,12 +5,18 @@ The app show a ranking of the best smartphones of 2020. Show more detail about t
 
 The project has been developed with the following tools:
 
+- Frontend app:
+
     1. JavaScript
     2. React
     3. Redux
     4. Rxjs
     5. HTML5
     6. SASS
+
+- API:
+    1. NodeJS
+    2. Express
 
 ### Structure 
 
