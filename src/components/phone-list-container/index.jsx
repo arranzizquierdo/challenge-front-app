@@ -1,14 +1,18 @@
 import './index.scss';
 import {connect} from 'react-redux';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import PhoneCardComponent from '../phone-card-component';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {searchPhoneList} from '../../store/actions/index';
 import Spinner from '../spinner';
+import {faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 
 export const PhoneListContainer = ({searchPhoneList, state}) => {
 
   const phones = state.phones && state.phones;
+  const currentPage = state.currentPage;
+  const totalPage = state.totalPage;
 
   if(!phones) {
     searchPhoneList();
@@ -39,7 +43,20 @@ export const PhoneListContainer = ({searchPhoneList, state}) => {
               }
             </section>
             <section className="pagerList">
-              <p>paginación</p>
+              {
+                currentPage && currentPage > 1 ?
+                  <FontAwesomeIcon className="iconPage" 
+                    onClick={() => searchPhoneList(currentPage - 1)} 
+                    icon={faAngleDoubleLeft}/> :
+                  <span />
+              }
+              {
+                currentPage && currentPage < totalPage ?
+                  <FontAwesomeIcon className="iconPage"
+                    onClick={() => searchPhoneList(currentPage + 1)}
+                    icon={faAngleDoubleRight} /> :
+                  <span />
+              }
             </section>
           </nav> :
           <Spinner/>

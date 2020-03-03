@@ -11,6 +11,8 @@ export default function savePhoneList(state = initialState, action) {
       ...state,
       searching: false,
       phones: action.payload.result.phoneList,
+      currentPage: action.payload.result.currentPage,
+      totalPage: action.payload.result.totalPage,
     };
     return newState;
   }

@@ -10,7 +10,7 @@ const executesearchPhoneList = (action$) => action$
     switchMap((action) => {
       return ajax({
         method: 'GET',
-        url: `http://localhost:3000/phoneList`
+        url: `http://localhost:3000/phoneList?page=${action.payload.currentPage}`
       }).pipe(
         map((res) => res.response ? savePhoneList(res.response) : empty()),
         catchError((error) => console.log(error))
