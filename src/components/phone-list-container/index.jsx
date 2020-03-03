@@ -1,11 +1,20 @@
 import './index.scss';
+import {connect} from 'react-redux';
 import mockData from '../../mockData';
 import PhoneCardComponent from '../phone-card-component';
+import PropTypes from 'prop-types';
 import React from 'react';
+import {savePhoneList} from '../../store/actions/index';
 import Spinner from '../spinner';
 
-export const PhoneListContainer = () => {
-  const phones = mockData;
+export const PhoneListContainer = ({state, savePhoneList}) => {
+  
+  const phones = state.phones && state.phones;
+
+  if(!phones) {
+    savePhoneList(mockData);
+  }
+
   return <div>
     <header className="headerContainer">
       <h1>GUIA MÓVILES</h1>
@@ -40,4 +49,18 @@ export const PhoneListContainer = () => {
   </div>
 }
 
-export default PhoneListContainer
+PhoneListContainer.propTypes = {
+  state: PropTypes.object,
+  savePhoneList: PropTypes.func,
+}
+
+function mapStateToProps(state) {
+  return {
+    state: state.search
+  }
+}
+
+export default connect(
+  mapStateToProps, 
+  {savePhoneList}
+)(PhoneListContainer)
