@@ -10,7 +10,7 @@ export default function savePhoneList(state = initialState, action) {
     const newState = {
       ...state,
       searching: false,
-      phones: action.payload.result
+      phones: action.payload.result.phoneList,
     };
     return newState;
   }

@@ -1,18 +1,17 @@
 import './index.scss';
 import {connect} from 'react-redux';
-import mockData from '../../mockData';
 import PhoneCardComponent from '../phone-card-component';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {savePhoneList} from '../../store/actions/index';
+import {searchPhoneList} from '../../store/actions/index';
 import Spinner from '../spinner';
 
-export const PhoneListContainer = ({state, savePhoneList}) => {
-  
+export const PhoneListContainer = ({searchPhoneList, state}) => {
+
   const phones = state.phones && state.phones;
 
   if(!phones) {
-    savePhoneList(mockData);
+    searchPhoneList();
   }
 
   return <div>
@@ -51,7 +50,7 @@ export const PhoneListContainer = ({state, savePhoneList}) => {
 
 PhoneListContainer.propTypes = {
   state: PropTypes.object,
-  savePhoneList: PropTypes.func,
+  searchPhoneList: PropTypes.func,
 }
 
 function mapStateToProps(state) {
@@ -62,5 +61,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps, 
-  {savePhoneList}
+  {searchPhoneList}
 )(PhoneListContainer)
